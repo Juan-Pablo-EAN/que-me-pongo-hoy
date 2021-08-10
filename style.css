@@ -5,9 +5,8 @@ body {
 }
 
 header nav {
-    background: rgb(250, 127, 147);
-    position: absolute;
-    top: 0;
+    /* background: rgb(250, 127, 147); */
+    background-color: rgb(70, 190, 238);
 }
 
 header nav, nav div {
@@ -45,5 +44,238 @@ nav ul li {
 }
 
 nav ul li:hover {
-    background-color: rgb(214, 105, 123);
+    /* background-color: rgb(214, 105, 123); */
+    background-color: rgb(53, 146, 184);
+}
+
+section {
+    padding-top: 50px;
+}
+
+section .verPrendas {
+    width: 100%;
+    height: auto;
+    display: none; /*----------------------------------------------------------------------------------------------**/
+}
+
+section .verPrendas .contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-rows: auto;
+    grid-gap: 15px;
+    padding: 3%;
+}
+
+.contenedor .cuadro {
+    border: 1px solid rgb(70, 190, 238);
+    border-radius: 7px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contenedor .cuadro img {
+    width: 100%;
+}
+
+.contenedor .cuadro .check {
+    width: 100%;
+    text-align: right;
+}
+
+.contenedor .cuadro input {
+    outline: none;
+}
+
+.contenedor .cuadro .texto {
+    width: 100%;
+    text-align: center;
+    background-color: rgb(70, 190, 238);
+    padding: 5px 0 5px 0;
+}
+
+.divBotones {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.divBotones .botones {
+    width: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+}
+
+
+.divBotones .botones div button {
+    width: 100%;
+    border: none;
+    color: white;
+    height: 30px;
+    font-size: large;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.botones .select button {
+    background-color: rgb(23, 158, 115);
+}
+
+.botones .delete button {
+    background-color: rgb(173, 66, 66);
+}
+
+section .fondoModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 105%;
+    background-color: rgba(29, 29, 29, 0.329);
+    /* display: flex; ---------------------------------------------------------------------------------*/ 
+    display: none;
+    align-items: center;
+    justify-content: center;
+    overflow-y: scroll;
+}
+
+.fondoModal .modal {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    background-color: white;
+    border-radius: 7px;
+    margin-top: 70px;
+}
+
+.fondoModal .modal .close {
+    width: 100%;
+    text-align: right;
+}
+
+.fondoModal .modal .close i {
+    margin: 10px;
+    font-size: large;
+}
+
+.fondoModal .modal .close i:hover {
+    color: rgb(173, 66, 66);
+    cursor: pointer;
+}
+
+.fondoModal .modal .seccion1 {
+    width: 100%;
+}
+
+.fondoModal .modal .seccion1 .imagen {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.seccion1 .imagen img {
+    width: 300px;
+    height: auto;
+    max-height: 400px;
+}
+
+.modal .botones {
+    width: 100%;
+    display: flex;
+}
+
+.modal .botones {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.modal .botones .contenedor {
+    width: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.modal .botones .contenedor div button {
+    width: 100%;
+    border: none;
+    color: white;
+    height: 30px;
+    font-size: large;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal .botones .contenedor .editar button {
+    background-color: rgb(23, 158, 115);
+}
+
+.modal .botones .contenedor .editar button:hover {
+    background-color: rgb(20, 139, 102);
+}
+
+.modal .botones .contenedor .editar button:active {
+    background-color: rgb(23, 158, 115);
+}
+
+.modal .botones .contenedor .delete button {
+    background-color: rgb(173, 66, 66);
+}
+
+.modal .botones .contenedor .delete button:hover {
+    background-color: rgb(143, 55, 55);
+}
+
+.modal .botones .contenedor .delete button:active {
+    background-color: rgb(173, 66, 66);
+}
+
+.modal .seccion2 {
+    width: 100%;
+    background-color: rgb(53, 146, 184);
+    color: white;
+    padding-top: 50px;
+}
+
+.modal .seccion2 .inputs {
+    padding: 0 50px 20px 50px;
+}
+
+.modal .seccion2 .inputs input {
+    outline: none;
+    width: auto;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: medium;
+}
+
+.modal .seccion2 .save {
+    width: 100%;
+    text-align: right;
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.modal .seccion2 .save button {
+    width: 200px;
+    border: none;
+    color: white;
+    height: 30px;
+    font-size: large;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(30, 204, 149);
+}
+
+.modal .seccion2 .save button:hover {
+    background-color: rgb(25, 165, 121);
+}
+
+.modal .seccion2 .save button:active {
+    background-color: rgb(30, 204, 149);
 }
