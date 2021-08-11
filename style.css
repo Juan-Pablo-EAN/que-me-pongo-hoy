@@ -49,13 +49,14 @@ nav ul li:hover {
 }
 
 section {
-    padding-top: 50px;
+    padding-top: 10px;
 }
 
 section .verPrendas {
     width: 100%;
     height: auto;
-    display: none; /*----------------------------------------------------------------------------------------------**/
+    /* display: none;  */
+    /*----------------------------------------------------------------------------------------------*/
 }
 
 section .verPrendas .contenedor {
@@ -132,8 +133,9 @@ section .fondoModal {
     width: 100%;
     height: 105%;
     background-color: rgba(29, 29, 29, 0.329);
-    /* display: flex; ---------------------------------------------------------------------------------*/ 
-    display: none;
+    display: flex; 
+    /*--------------------------------------------------------------------------------- */
+    display: none; 
     align-items: center;
     justify-content: center;
     overflow-y: scroll;
@@ -278,4 +280,95 @@ section .fondoModal {
 
 .modal .seccion2 .save button:active {
     background-color: rgb(30, 204, 149);
+}
+
+.queMePongo h1 {
+    font-size: xx-large;
+    color: rgb(53, 146, 184);
+    margin: 3% 0 3% 5%;
+}
+
+.queMePongo .opciones input {
+    outline: none;
+    font-size: large;
+}
+
+.queMePongo .opciones label {
+    font-size: large;
+}
+
+.ocasion, .otroFiltro, .gorros, .zapatos, .vestidos {
+    color: rgb(29, 29, 29);
+}
+
+.filtros input[type="checkbox"]{
+    width: 15px;
+    height: 15px;
+}
+
+.filtros {
+    margin-left: 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 30px;
+    align-items: center;
+}
+
+.otroFiltro input, .ocasion select {
+    margin-top: 15px;
+}
+
+.filtros .ocasion select {
+    width: 200px;
+    outline: none;
+    font-size: large;
+}
+
+.filtros .divBoton button {
+    width: 150px;
+    border: none;
+    color: white;
+    height: 40px;
+    cursor: pointer;
+    font-size: large;
+    border-radius: 5px;
+}
+
+.filtros .divBoton button:hover {
+    background-color: rgb(32, 173, 128);
+}
+
+.filtros .divBoton button, .filtros .divBoton button:active {
+    background-color: rgb(25, 133, 99);
+}
+
+.queMePongo .resultado {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.queMePongo .resultado .contenedor {
+    border: 1px solid rgb(53, 146, 184);
+    border-radius: 7px;
+    width: 100%;
+    max-width: 1200px;
+    background-color: rgba(53, 147, 184, 0.404);
+}
+
+.resultado .contenedor .prendaResult {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.resultado .contenedor .prendaResult div {
+    margin-left: 10%;
+    width: 200px;
+}
+
+.resultado .contenedor .prendaResult div img {
+    width: 100%;
 }
