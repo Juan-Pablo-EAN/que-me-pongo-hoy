@@ -55,7 +55,7 @@ section {
 section .verPrendas {
     width: 100%;
     height: auto;
-    /* display: none;  */
+    display: none; 
     /*----------------------------------------------------------------------------------------------*/
 }
 
@@ -118,11 +118,20 @@ section .verPrendas .contenedor {
     cursor: pointer;
 }
 
-.botones .select button {
+
+.botones .select button:hover {
+    background-color: rgb(21, 136, 100);
+}
+
+.botones .select button, .botones .select button:active {
     background-color: rgb(23, 158, 115);
 }
 
-.botones .delete button {
+.botones .delete button:hover {
+    background-color: rgb(155, 58, 58);
+}
+
+.botones .delete button, .botones .delete button:active {
     background-color: rgb(173, 66, 66);
 }
 
@@ -345,8 +354,11 @@ section .fondoModal {
 .queMePongo .resultado {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     margin-top: 50px;
+    display: none;
+    /*-----------------------------------------------------------------------------------------------------*/
 }
 
 .queMePongo .resultado .contenedor {
@@ -371,4 +383,119 @@ section .fondoModal {
 
 .resultado .contenedor .prendaResult div img {
     width: 100%;
+}
+
+.resultado .botones {
+    width: 100%;
+    padding: 3%;
+}
+
+.resultado .botones .divBotones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-content: center;
+    grid-gap: 30px;
+    text-align: center;
+}
+
+.resultado .botones div button {
+    margin: 10px;
+    width: 50%;
+    border: none;
+    color: white;
+    height: 40px;
+    font-size: large;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.resultado .botones .btn1:hover {
+    background-color: rgb(139, 53, 53);
+}
+
+.resultado .botones .btn1, .resultado .botones .btn1:active {
+    background-color: rgb(173, 66, 66);
+}
+
+.resultado .botones .btn2:hover {
+    background-color: rgb(19, 131, 95);
+}
+
+.resultado .botones .btn2, .resultado .botones .btn2:active {
+    background-color: rgb(25, 165, 121);
+}
+
+.añadir {
+    padding: 0 30px 50px 30px;
+    border-bottom: 1px solid teal;
+    display: flex;
+    justify-content: center;
+    display: none;
+    /*------------------------------------------------------------------------------------------------*/
+}
+
+.añadir .contenido {
+    width: 100%;
+    max-width: 500px;
+}
+
+.añadir .titulo {
+    width: 100%;
+    color: rgb(53, 146, 184);
+    text-align: center;
+}
+
+.añadir .titulo h1 {
+    font-size: xx-large;
+}
+
+.añadir .inputs {
+    text-align: center;
+}
+
+.añadir .inputs div {
+    margin-bottom: 15px;
+}
+
+.añadir .inputs input {
+    margin-left: 10px;
+}
+
+.añadir .inputs div input[type="text"] {
+    border: 1px solid rgb(53, 146, 184);
+    border-radius: 7px;
+    width: 100%;
+    max-width: 250px;
+    height: 20px;
+}
+
+.añadir .botones {
+    width: 100%;
+}
+
+.añadir .botones .divBotones {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin-top: 30px;
+    text-align: center;
+}
+
+.añadir .botones .divBotones div button {
+    width: 80%;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgb(25, 165, 121);
+    color: white;
+    font-size: large;
+    cursor: pointer;
+}
+
+.añadir .botones .divBotones div button:hover {
+    background-color: rgb(20, 128, 93);
+}
+
+.añadir .botones .divBotones div button:active {
+    background-color: rgb(25, 165, 121);
 }
