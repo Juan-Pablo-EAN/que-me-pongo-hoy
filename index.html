@@ -17,7 +17,7 @@
         <nav>
             <div>
                 <ul>
-                    <li>
+                    <li class="lis">
                         <select name="prendas" id="prendas">
                             <option value="camisas">Camisas</option>
                             <option value="camisetas">Camisetas</option>
@@ -31,14 +31,58 @@
                             <option value="otros">Otros</option>
                         </select>
                     </li>
-                    <li>Añadir prenda</li>
-                    <li>Editar color</li>
-                    <li>Bienvenida</li>
+                    <li class="lis addPrenda">Añadir prenda</li>
+                    <li class="lis editarColor">Editar color</li>
+                    <li class="lis welcome">Bienvenida</li>
+                    <li class="barras"><i class="fas fa-bars"></i></li>
                 </ul>
             </div>
         </nav>
     </header>
     <section>
+        <div class="añadir">
+            <div class="contenido">
+                <div class="titulo">
+                    <h1>Añadir prenda</h1>
+                </div>
+                <div class="inputs">
+                    <div>
+                        <label>Categoría:</label>
+                        <select name="prendas" id="prendas">
+                            <option value="camisas">Camisas</option>
+                            <option value="camisetas">Camisetas</option>
+                            <option value="busos">Busos</option>
+                            <option value="sacos">Sacos</option>
+                            <option value="pantalones">Pantalones</option>
+                            <option value="vestidos">Vestidos</option>
+                            <option value="zapatos">Zapatos</option>
+                            <option value="sombretos">Sombreros</option>
+                            <option value="accesorios">Accesorios</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Ocasión:</label>
+                        <input type="text" class="ocasionInput">
+                    </div>
+                    <div>
+                        <label>Color:</label>
+                        <input type="text" class="colorInput">
+                    </div>
+                    <div>
+                        <label>Imagen:</label>
+                        <input type="file" class="imagenInput">
+                    </div>
+                </div>
+                <div class="botones">
+                    <div class="divBotones">
+                        <div>
+                            <button class="btn2">Añadir <i class="fas fa-check"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="verPrendas">
             <div class="divBotones">
                 <div class="botones">
@@ -47,6 +91,9 @@
                     </div>
                     <div class="delete">
                         <button>Eliminar <i class="fas fa-trash-alt"></i></button>
+                    </div>
+                    <div class="select">
+                        <button class="closeVerPrendas">Cerrar <i class="fas fa-times"></i></button>
                     </div>
                 </div>
             </div>
@@ -213,38 +260,6 @@
                         </div>
                         <div class="save">
                             <button>Guardar <i class="fas fa-save"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="añadir">
-            <div class="contenido">
-                <div class="titulo">
-                    <h1>Añadir prenda</h1>
-                </div>
-                <div class="inputs">
-                    <div>
-                        <label>Categoría:</label>
-                        <input type="text">
-                    </div>
-                    <div>
-                        <label>Ocasión:</label>
-                        <input type="text">
-                    </div>
-                    <div>
-                        <label>Color:</label>
-                        <input type="text">
-                    </div>
-                    <div>
-                        <label>Imagen:</label>
-                        <input type="file">
-                    </div>
-                </div>
-                <div class="botones">
-                    <div class="divBotones">
-                        <div>
-                            <button class="btn2">Añadir <i class="fas fa-check"></i></button>
                         </div>
                     </div>
                 </div>

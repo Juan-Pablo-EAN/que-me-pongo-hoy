@@ -43,19 +43,30 @@ nav ul li {
     padding: 20px;
 }
 
+nav .barras {
+    display: none;
+}
+
+@media screen and (max-width:650px) {
+    nav .barras {
+        display: block;
+    }
+    nav .lis {
+        display: none;
+    }
+}
+
 nav ul li:hover {
     /* background-color: rgb(214, 105, 123); */
     background-color: rgb(53, 146, 184);
 }
 
-section {
-    padding-top: 10px;
-}
 
 section .verPrendas {
     width: 100%;
     height: auto;
     display: none; 
+    padding-top: 50px;
     /*----------------------------------------------------------------------------------------------*/
 }
 
@@ -101,9 +112,9 @@ section .verPrendas .contenedor {
 }
 
 .divBotones .botones {
-    width: 300px;
+    width: 500px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 5px;
 }
 
@@ -461,12 +472,14 @@ section .fondoModal {
     margin-left: 10px;
 }
 
-.añadir .inputs div input[type="text"] {
+.añadir .inputs div input[type="text"], .añadir .inputs select {
     border: 1px solid rgb(53, 146, 184);
     border-radius: 7px;
     width: 100%;
     max-width: 250px;
     height: 20px;
+    font-size: medium;
+    outline: none;
 }
 
 .añadir .botones {
