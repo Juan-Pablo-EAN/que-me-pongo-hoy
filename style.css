@@ -486,6 +486,39 @@ section .fondoModal {
     width: 100%;
 }
 
+.añadir .botones .exitoAdd {
+    color: rgb(25, 133, 99);
+    text-align: center;
+    font-weight: 500;
+}
+
+.añadir .botones .exitoAdd .textoExitoAdd {
+    display: none;
+}
+
+.añadir .botones .spiner {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    display: none;
+}
+
+.añadir .botones .spiner div {
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgb(53, 146, 184);
+    border-bottom: 3px solid white;
+    border-radius: 100px;
+    animation: girar 1s linear infinite;
+}
+
+@keyframes girar {
+   
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .añadir .botones .divBotones {
     width: 100%;
     display: grid;

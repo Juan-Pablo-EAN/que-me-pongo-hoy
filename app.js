@@ -1,3 +1,6 @@
+const exitoAdd = document.querySelector(".textoExitoAdd");
+const spiner = document.querySelector(".spiner");
+
 let IDBRequest = indexedDB.open("ropaDB", 1);
 
 IDBRequest.addEventListener("upgradeneeded", () => {
@@ -30,6 +33,10 @@ const addObjeto = objeto => {
     db[1].addEventListener("complete", () => {
         console.log("Objeto añadido exitosamente");
     });
+    setTimeout(() => {
+        spiner.style.display = "none";
+        exitoAdd.style.display = "block";
+    }, 500);
 }
 
 const editObjeto = (objeto, key) => {
@@ -114,6 +121,7 @@ const abrirSeccionAdd = () => {
 
 const cerrarSeccionAdd = () => {
     seccionAñadir.style.display = "none";
+    exitoAdd.style.display = "none";
 }
 
 const eventoAddPrenda = () => {
@@ -170,34 +178,44 @@ const crearCuadrosPrendas = () => {
 }
 
 const btnAñadir = document.querySelector(".btn2");
-const categoria1 = document.getElementById("prendas");
+const categoria1 = document.querySelector(".category");
 const ocasion1 = document.querySelector(".ocasionInput");
 const color1 = document.querySelector(".colorInput");
 const imagen1 = document.querySelector(".imagenInput");
 
 const añadirPrenda = () => {
     btnAñadir.addEventListener("click", () => {
+        exitoAdd.style.display = "none";
+        if (ocasion1.value.length > 0 && color1.value.length > 0 && imagen1.files.length > 0) {
+            let urlImg;
 
-        let urlImg;
+            let reader = new FileReader();
 
-        let reader = new FileReader();
-        reader.readAsDataURL(imagen1.files[0]);
-        reader.addEventListener("load", e => {
-            urlImg = e.currentTarget.result;
-            console.log(typeof e.currentTarget.result) //revisar
-        });
+            reader.readAsDataURL(imagen1.files[0]);
+            reader.addEventListener("load", e => {
+                urlImg = e.currentTarget.result;
+                console.log(typeof e.currentTarget.result);
 
-        let prenda = {
-            categoria: `${categoria1.value}`,
-            ocasion: `${ocasion1.value},`,
-            color: `${color1.value}`,
-            imagen: `${urlImg}` //revisar
+                let prenda = {
+                    categoria: `${categoria1.value}`,
+                    ocasion: `${ocasion1.value},`,
+                    color: `${color1.value}`,
+                    imagen: `${urlImg}`
+                }
+
+                spiner.style.display = "flex";
+                addObjeto(prenda);
+
+                ocasion1.value = "";
+                color1.value = "";
+            });
+        } else {
+            alert("Completa todos los espacios antes de continuar");
         }
 
-        console.log(prenda);
-    })
-}
 
+    });
+}
 
 
 window.addEventListener("load", () => {
