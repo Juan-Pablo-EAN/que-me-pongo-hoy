@@ -241,6 +241,7 @@ window.addEventListener("load", () => {
     eventoAddPrenda();
     añadirPrenda();
     verCategorias();
+    eventoCerrarModal();
 });
 
 

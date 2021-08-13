@@ -72,7 +72,7 @@ section .verPrendas {
 
 section .verPrendas .contenedor {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 200px));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-template-rows: auto;
     grid-gap: 15px;
     padding: 3%;
@@ -83,13 +83,13 @@ section .verPrendas .contenedor {
     border-radius: 7px;
     display: flex;
     flex-wrap: wrap;
-    height: auto;
-    max-height: 250px;
+    /* max-height: 250px; */
+    cursor: pointer;
 }
 
 .contenedor .cuadro img {
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
 .contenedor .cuadro .check {
@@ -475,7 +475,14 @@ section .fondoModal {
 }
 
 .añadir .inputs input {
-    margin-left: 10px;
+    margin: 10px 0 10px 10px;
+}
+
+.añadir .seleccionarImagen {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 .añadir .inputs div input[type="text"], .añadir .inputs select {
