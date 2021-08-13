@@ -55,12 +55,15 @@ const eliminarObjeto = key => {
     });
 }
 
-const leerObjetos = () => {
+const leerObjetos = escogida => {
     let db = obtenerObjeto("readonly");
     let cursor = db[0].openCursor();
     cursor.addEventListener("success", () => {
         if (cursor.result) {
-            console.log(cursor.result.value);
+
+            if (cursor.result.value.categoria == escogida) {
+                crearCuadrosPrendas(cursor.result.value.categoria, cursor.result.value.color, cursor.result.value.imagen, cursor.result.key);
+            }
             cursor.result.continue();
         } else {
             console.log("Objetos leídos exitosamente");
@@ -152,7 +155,9 @@ const eventoCerrarModal = () => {
     });
 }
 
-const crearCuadrosPrendas = () => {
+const cuadrosContent = document.querySelector(".cuadrosContent");
+
+const crearCuadrosPrendas = (categoria, color, image, ide) => {
     let divCuadro = document.createElement("DIV");
     let divCheck = document.createElement("DIV");
     let inputCheck = document.createElement("INPUT");
@@ -163,9 +168,10 @@ const crearCuadrosPrendas = () => {
     divCheck.classList.add("check");
     inputCheck.setAttribute("type", "checkbox");
     inputCheck.classList.add("checkCuadro");
-    imagen.setAttribute("src", ``);
+    imagen.setAttribute("src", `${image}`);
     imagen.setAttribute("alt", `imagen de una prenda`);
     divTexto.classList.add("texto");
+    divTexto.textContent = `Color: ${color}`;
 
     divCheck.appendChild(inputCheck);
     divCuadro.appendChild(divCheck);
@@ -175,6 +181,8 @@ const crearCuadrosPrendas = () => {
     divCuadro.addEventListener("click", () => {
         abrirModal();
     });
+
+    cuadrosContent.appendChild(divCuadro);
 }
 
 const btnAñadir = document.querySelector(".btn2");
@@ -189,12 +197,13 @@ const añadirPrenda = () => {
         if (ocasion1.value.length > 0 && color1.value.length > 0 && imagen1.files.length > 0) {
             let urlImg;
 
-            let reader = new FileReader();
+            const reader = new FileReader();
 
             reader.readAsDataURL(imagen1.files[0]);
+
             reader.addEventListener("load", e => {
+
                 urlImg = e.currentTarget.result;
-                console.log(typeof e.currentTarget.result);
 
                 let prenda = {
                     categoria: `${categoria1.value}`,
@@ -212,11 +221,18 @@ const añadirPrenda = () => {
         } else {
             alert("Completa todos los espacios antes de continuar");
         }
-
-
     });
 }
 
+const prendasCombo = document.querySelector(".prendas1");
+
+const verCategorias = () => {
+    prendasCombo.addEventListener("change", () => {
+        console.log(prendasCombo.value);
+        cuadrosContent.innerHTML = "";
+        leerObjetos(prendasCombo.value);
+    });
+}
 
 window.addEventListener("load", () => {
     navBarResponsive();
@@ -224,4 +240,76 @@ window.addEventListener("load", () => {
     eventoCerrarPrendas();
     eventoAddPrenda();
     añadirPrenda();
+    verCategorias();
 });
+
+
+/*************************************** */
+
+let cerebro = new brain.NeuralNetwork;
+
+cerebro.train([
+    {
+        input: {
+            rojo: 0,
+            verde: 0,
+            azul: 0
+        },
+        output: {
+            color: 1
+        }
+    },
+    {
+        input: {
+            rojo: 0,
+            verde: 0,
+            azul: 0
+        },
+        output: {
+            color: 1
+        }
+    },
+    {
+        input: {
+            rojo: 0,
+            verde: 0,
+            azul: 0
+        },
+        output: {
+            color: 1
+        }
+    }
+]);
+
+function update(color) {
+
+    var rgb = [color.channels.r, color.channels.g, color.channels.b];
+
+    var div = document.getElementById("prendas");
+    div.style.background = color.toHEXString();
+
+
+    var entrada = {
+        rojo: rgb[0] / 255,
+        verde: rgb[1] / 255,
+        azul: rgb[2] / 255,
+    };
+
+    var resultado = cerebro.run(entrada);
+
+    if (resultado.color > .5) {
+        div.style.color = "white";
+    } else {
+        div.style.color = "black";
+    }
+}
+
+
+//http://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=607cbc413a28c9a9b4fe729d2d056555&user_id=189093292@N03&format=json
+
+
+//607cbc413a28c9a9b4fe729d2d056555
+//fbc7d5c75dc0b7e4
+//189093292@N03 userid
+//722513154151-frvr7qco8oq0sq1926eupgdf9bru220c.apps.googleusercontent.com
+

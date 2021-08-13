@@ -72,7 +72,7 @@ section .verPrendas {
 
 section .verPrendas .contenedor {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 200px));
     grid-template-rows: auto;
     grid-gap: 15px;
     padding: 3%;
@@ -83,10 +83,13 @@ section .verPrendas .contenedor {
     border-radius: 7px;
     display: flex;
     flex-wrap: wrap;
+    height: auto;
+    max-height: 250px;
 }
 
 .contenedor .cuadro img {
     width: 100%;
+    height: 100%;
 }
 
 .contenedor .cuadro .check {
@@ -103,6 +106,9 @@ section .verPrendas .contenedor {
     text-align: center;
     background-color: rgb(70, 190, 238);
     padding: 5px 0 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .divBotones {
