@@ -203,7 +203,7 @@ const añadirPrenda = () => {
 
             reader.addEventListener("load", e => {
 
-                urlImg = e.currentTarget.result;
+                urlImg = e.currentTarget.result; //esto crea una URL que no se elimina cuando se cierra el navegador
 
                 let prenda = {
                     categoria: `${categoria1.value}`,

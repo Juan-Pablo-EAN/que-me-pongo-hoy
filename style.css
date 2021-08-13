@@ -444,10 +444,10 @@ section .fondoModal {
 
 .añadir {
     padding: 0 30px 50px 30px;
-    border-bottom: 1px solid teal;
     display: flex;
     justify-content: center;
     display: none;
+    background-color: rgba(23, 158, 115, 0.219);
     /*------------------------------------------------------------------------------------------------*/
 }
 
@@ -475,7 +475,7 @@ section .fondoModal {
 }
 
 .añadir .inputs input {
-    margin: 10px 0 10px 10px;
+    margin-left: 10px;
 }
 
 .añadir .seleccionarImagen {
