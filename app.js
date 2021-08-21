@@ -61,7 +61,7 @@ const leerObjetos = escogida => {
     cursor.addEventListener("success", () => {
         if (cursor.result) {
 
-            if (cursor.result.value.categoria == escogida) {
+            if (cursor.result.value.ocasion == escogida) {
                 crearCuadrosPrendas(cursor.result.value.categoria, cursor.result.value.color, cursor.result.value.imagen, cursor.result.key);
             }
             cursor.result.continue();
@@ -234,6 +234,55 @@ const verCategorias = () => {
     });
 }
 
+let ocasionEscogida = document.querySelector(".ocasiones1");
+let otroFiltro = document.querySelector(".otroFiltro");
+let check1 = document.getElementById("check1");
+let check2 = document.getElementById("check2");
+let check3 = document.getElementById("check3");
+
+let gorros = []; //esto es para almacenar los resultados de las busquedas
+let camisetas = [];
+let pantalones = [];
+let vestidos = [];
+let zapatos = [];
+
+let ropaFiltrada = [];
+
+let cerebro = new brain.NeuralNetwork;
+
+const leerPrendas = ocasion2 => {
+    let db = obtenerObjeto("readonly");
+    let cursor = db[0].openCursor();
+    cursor.addEventListener("success", () => {
+        if (cursor.result) {
+            if (cursor.result.value.ocasion == ocasion2) {
+                ropaFiltrada.push(cursor.result.value); //se filtran por la ocasion escogida
+            }
+            cursor.result.continue();
+        } else {
+            console.log("Objetos leídos exitosamente");
+            combinarColores(); //al terminar de leer los objetos se combinan los colores
+        }
+    });
+}
+
+//ver el pruebas.js para continuar entendiendo el cerebro
+
+const leerInputs = () => {
+    let ocasionQ = ocasionEscogida.value;
+    let filtroQ = otroFiltro.value;
+    let isGorros = check1.value;
+    let isZapatos = check2.value;
+    let isVestidos = check3.value;
+
+    leerPrendas(ocasionQ);
+}
+
+check1.addEventListener("change", () => {
+    //mirar como obtener el valor de cada check
+});
+
+
 window.addEventListener("load", () => {
     navBarResponsive();
     eventoComboBox();
@@ -245,72 +294,11 @@ window.addEventListener("load", () => {
 });
 
 
+
+
+
+
+
 /*************************************** */
 
-let cerebro = new brain.NeuralNetwork;
-
-cerebro.train([
-    {
-        input: {
-            rojo: 0,
-            verde: 0,
-            azul: 0
-        },
-        output: {
-            color: 1
-        }
-    },
-    {
-        input: {
-            rojo: 0,
-            verde: 0,
-            azul: 0
-        },
-        output: {
-            color: 1
-        }
-    },
-    {
-        input: {
-            rojo: 0,
-            verde: 0,
-            azul: 0
-        },
-        output: {
-            color: 1
-        }
-    }
-]);
-
-function update(color) {
-
-    var rgb = [color.channels.r, color.channels.g, color.channels.b];
-
-    var div = document.getElementById("prendas");
-    div.style.background = color.toHEXString();
-
-
-    var entrada = {
-        rojo: rgb[0] / 255,
-        verde: rgb[1] / 255,
-        azul: rgb[2] / 255,
-    };
-
-    var resultado = cerebro.run(entrada);
-
-    if (resultado.color > .5) {
-        div.style.color = "white";
-    } else {
-        div.style.color = "black";
-    }
-}
-
-
-//http://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=607cbc413a28c9a9b4fe729d2d056555&user_id=189093292@N03&format=json
-
-
 //607cbc413a28c9a9b4fe729d2d056555
-//fbc7d5c75dc0b7e4
-//189093292@N03 userid
-//722513154151-frvr7qco8oq0sq1926eupgdf9bru220c.apps.googleusercontent.com
-
